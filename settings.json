@@ -1,0 +1,26 @@
+{
+    "masmtasm.ASM.emulator": "dosbox",
+    "masmtasm.ASM.mode": "workspace",
+    "masmtasm.ASM.actions": {
+        "TASM": {
+            "baseBundle": "<built-in>/TASM.jsdos",
+            "before": [
+                "set PATH=C:\\TASM",
+                "cd kaprekar",
+            ],
+            "run": [
+                "TASM /zi /m2 /la main.asm",
+                "TASM /zi /m2 /la proclib.asm",
+                "TLINK /v/3 main.obj proclib.obj",
+                ">main.exe"
+            ],
+            "debug": [
+                "TASM /zi /m2 /la main.asm",
+                "TASM /zi /m2 /la proclib.asm",
+                "TLINK /v/3 main.obj proclib.obj",
+                "TD main.exe"
+            ]
+        }
+    },
+    "masmtasm.ASM.assembler": "TASM"
+}
